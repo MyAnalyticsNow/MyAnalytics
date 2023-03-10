@@ -19,8 +19,16 @@ app.get("/api/myanalytics.js/auth/:id", (req, res) => {
     res.sendFile(rp("API/myanalytics.js"))
 })
 
+var siteViews = 0;
+var currentViewing = 0;
 app.post("/api/add-view", (req, res) => {
-    console.log(req.body)
+    currentViewing++;
+    console.log(currentViewing)
+})
+
+app.post("/api/leave-site", (req, res) => {
+    currentViewing--;
+    console.log(currentViewing)
 })
 
 const port = process.env.port;
