@@ -14,6 +14,15 @@ app.get("/", (req, res) => {
     res.sendFile(rp("html/index.html"))
 })
 
+app.get("/api/myanalytics.js/auth/:id", (req, res) => {
+    console.log(req.params.id)
+    res.sendFile(rp("API/myanalytics.js"))
+})
+
+app.post("/api/add-view", (req, res) => {
+    console.log(req.body)
+})
+
 const port = process.env.port;
 app.listen(port, () => {
     console.log("\x1b[33mServer Running!")
