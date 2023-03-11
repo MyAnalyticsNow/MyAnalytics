@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path")
 const app = express();
+const favicon = require("serve-favicon")
 
 function rp(p) {
     return path.join(__dirname, p);
@@ -9,6 +10,7 @@ function rp(p) {
 
 app.use(express.json())
 app.use(express.static("static"))
+app.use(favicon(__dirname + "/static/myanalytics2.png"))
 
 app.get("/", (req, res) => {
     res.sendFile(rp("html/index.html"))
@@ -29,6 +31,10 @@ app.post("/api/add-view", (req, res) => {
 app.post("/api/leave-site", (req, res) => {
     currentViewing--;
     console.log(currentViewing)
+})
+
+app.get("/dashboard", (req, res) => {
+    
 })
 
 const port = process.env.port;

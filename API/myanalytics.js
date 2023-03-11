@@ -42,6 +42,11 @@ window.addEventListener("beforeunload", async (e) => {
 l("Attempting to execute callback...")
 try {
     onloadCallback();
+    a();
 } catch (err) {
     l("Callback failed...")
+}
+
+function a() {
+    l("Executed callback...")
 }
