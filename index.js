@@ -34,7 +34,7 @@ app.post("/api/leave-site", (req, res) => {
 })
 
 app.get("/dashboard", (req, res) => {
-    
+    res.sendFile(rp("html/dashboard.html"))
 })
 
 const port = process.env.port;
